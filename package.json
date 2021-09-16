@@ -4,7 +4,6 @@
   "license": "MIT",
   "version": "1.0.0",
   "private": true,
- 
   "dependencies": {
     "@date-io/date-fns": "^1.3.6",
     "@fortawesome/fontawesome-free": "^5.15.3",
