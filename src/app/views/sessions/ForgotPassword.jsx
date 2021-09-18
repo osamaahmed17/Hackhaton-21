@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Grid,
@@ -11,12 +11,20 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
 
-import { ToastContainer } from 'react-toastify';
 import { resetPassword } from "../../redux/actions/LoginActions";
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 function ForgotPassword(props) {
 
   const [email, setEmail] = useState('');
+  useEffect(()=>{
+    if(props.error){
+      toast(props.errorMessage);
+    }
+  }, [ props.error])
+  
+  
 
 const handleFormSubmit = () => {
   const emailObj = {
@@ -24,7 +32,7 @@ const handleFormSubmit = () => {
   }
   props.resetPassword(emailObj, props.history)
 }
-
+// console.log('Forget Prop:', props.error, props.errorMessage)
     return (
       <div className="signup flex flex-center w-100 h-100vh">
         <div className="p-8">
@@ -80,7 +88,9 @@ const handleFormSubmit = () => {
 
 const mapStateToProps = state => ({
   resetPassword: PropTypes.func.isRequired,
-  login: state.login
+  login: state.login,
+  error: state.login.error,
+  errorMessage: state.login.errorMessage
 });
 export default withRouter(
   connect(

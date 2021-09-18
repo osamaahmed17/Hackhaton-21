@@ -74,7 +74,7 @@ export const resetPassword = (body, history) => (dispatch) => {
       }, 2500)
 
     }).catch(err => {
-      // dispatch(failure(err));
+      dispatch(failure(err));
       localStorage.clear();
     })
 }

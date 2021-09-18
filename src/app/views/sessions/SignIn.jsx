@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Checkbox,
@@ -15,8 +15,10 @@ import { withRouter } from "react-router-dom";
 import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";
 import { prototype } from "react-autosuggest";
 import { Alert, AlertTitle } from '@material-ui/lab';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 function SignIn(props) {
   const styles = theme => ({
     wrapper: {
@@ -35,11 +37,17 @@ function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agreement, setAggrement] = useState("");
-
+  useEffect(()=>{
+    if(props.error){
+      toast(props.errorMessage);
+    }
+  }, [ props.error])
+  
   const handleFormSubmit = (event) => {
     props.loginWithEmailAndPassword( email, password , props.history);
   };
   
+// console.log('Login Prop:', props.error, props.errorMessage)
   return (
     <div className="signup flex flex-center w-100 h-100vh">
      

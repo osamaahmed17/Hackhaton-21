@@ -39,7 +39,7 @@ const LoginReducer = function(state = initialState, action) {
         success: false,
         loading: false,
         error: true,
-        errorMessage: action.error
+        errorMessage: action?.error?.response?.data?.error
       };
     }
     default: {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   Checkbox,
@@ -15,8 +15,9 @@ import { signUpUser } from "../../redux/actions/signUpActions";
 import { withRouter } from "react-router-dom";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { prototype } from "react-autosuggest";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp(props) {
@@ -26,6 +27,12 @@ function SignUp(props) {
   const [ cnicNumber, setCnicNumber ] = useState('');
   const [ phoneNumber, setPhoneNumber ] = useState('');
 
+  useEffect(() => {
+    if(props.error){
+      toast(props.errorMessage);
+    }
+    
+  }, [ props.error]);
   const handleFormSubmit = () => {
     const signUpObj = {
 
@@ -37,12 +44,12 @@ function SignUp(props) {
     }
     props.signUpUser(signUpObj, props.history);
   }
-console.log('PopL',props.error, props.errorMessage)
   return (
     <div className="signup flex flex-center w-100 h-100vh">
       <div className="p-8">
         <Card className="signup-card position-relative y-center">
           <Grid container>
+          
             <Grid item lg={5} md={5} sm={5} xs={12}>
               <div className="p-32 flex flex-center bg-light-gray flex-middle h-100">
                 <img
@@ -70,7 +77,7 @@ console.log('PopL',props.error, props.errorMessage)
                       "email is not valid"
                     ]}
                   />
-                   <ToastContainer />
+                <ToastContainer /> 
                   <TextValidator
                     className="mb-16 w-100"
                     label="Password"

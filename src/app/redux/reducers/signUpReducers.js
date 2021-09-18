@@ -13,6 +13,7 @@ import {
   };
   
   const SignUpReducers = function(state = initialState, action) {
+   
     switch (action.type) {
       case SIGN_UP_LOADING: {
         return {
@@ -39,7 +40,7 @@ import {
           success: false,
           loading: false,
           error: true,
-          errorMessage: action.error
+          errorMessage: action?.error?.response?.data?.error
         };
       }
       default: {
