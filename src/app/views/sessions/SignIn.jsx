@@ -15,7 +15,6 @@ import { withRouter } from "react-router-dom";
 import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";
 import { prototype } from "react-autosuggest";
 import { Alert, AlertTitle } from '@material-ui/lab';
-// import { ToastContainer } from 'react-toastify';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
