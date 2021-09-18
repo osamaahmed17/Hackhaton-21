@@ -7,9 +7,9 @@ class Brand extends Component {
       <div className="flex flex-middle flex-space-between brand-area">
         <div className="flex flex-middle brand">
           <img src="/assets/images/logo.png" alt="company-logo" />
-          <span className="brand__text">Demo Project</span>
+          <span className="brand__text">Intelligent Wallet System</span>
         </div>
-        {this.props.children}
+        {/* {this.props.children} */}
       </div>
     );
   }

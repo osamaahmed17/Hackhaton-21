@@ -47,9 +47,14 @@ export const navigations = [{
   //   path: "/blog"
   // },
   {
-    name: "Bank Auth",
+    name: "Bank Authentication",
     icon: "menu_book",
     path: "/bankAuth"
+  },
+  {
+    name: "Account Creation",
+    icon: "menu_book",
+    path: "/accountCreation"
   },
   {
     name: "Settings",

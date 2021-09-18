@@ -17,12 +17,14 @@ import sitePagesReducers from './sitePagesReducers';
 import signUpReducers from './signUpReducers';
 import resetPasswordReducer from './resetPassword.recucers';
 import BankAuthReducers from './BankAuthReducers';
+import AccountCreateReducers from './AccountCreateReducers';
 
 const RootReducer = combineReducers({
   login: LoginReducer,
   signUp: signUpReducers,
   user: UserReducer,
   bankAuth: BankAuthReducers,
+  accountCreate: AccountCreateReducers,
   resetPass: resetPasswordReducer,
   layout: LayoutReducer,
   scrumboard: ScrumBoardReducer,
