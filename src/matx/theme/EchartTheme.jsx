@@ -4,7 +4,7 @@ export const EchartTheme = MuiTheme => ({
   backgroundColor: MuiTheme.palette.background.paper,
   // Global palette:
   color: [
-    "#0f61fe",
+    "#2355fe",
     "#ABA4F4",
     "#D3D0F4",
     "rgba(0, 255, 33, 1)",
