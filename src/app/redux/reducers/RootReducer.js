@@ -15,11 +15,13 @@ import dashboardGraphReducers from "./dashboardGraphReducer";
 import SettingsReducers from './SettingsRedcuers';
 import sitePagesReducers from './sitePagesReducers';
 import signUpReducers from './signUpReducers';
+import resetPasswordReducer from './resetPassword.recucers';
 
 const RootReducer = combineReducers({
   login: LoginReducer,
   signUp: signUpReducers,
   user: UserReducer,
+  resetPass: resetPasswordReducer,
   layout: LayoutReducer,
   scrumboard: ScrumBoardReducer,
   notification: NotificationReducer,

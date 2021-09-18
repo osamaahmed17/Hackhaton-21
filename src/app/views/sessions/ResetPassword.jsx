@@ -1,92 +1,88 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-// import { PropTypes } from "prop-types";
-// import { withRouter } from "react-router-dom";
-
-// import React, { useEffect, useState } from "react";
-import {
-  Card,
-  Grid,
-  Button,
-  withStyles,
-  CircularProgress
-} from "@material-ui/core";
+import { Card, Grid, Button } from "@material-ui/core";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-// import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { resetPassword } from "../../redux/actions/ResetPassAction";
+import { useLocation } from "react-router-dom";
 
-// import { resetPassword } from "../../redux/actions/LoginActions";
-import { ToastContainer, toast } from 'react-toastify';
+function ResetPassword(props) {
 
-import 'react-toastify/dist/ReactToastify.css';
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+//   const params = new URLSearchParams(window.location.search);
+//   const yourParamName = params.get('yourParamName');
+//   console.log('Pa',yourParamName, params)
+const search = useLocation().search;
+const id=new URLSearchParams(search).get("token");
+console.log(id);//12345
+  useEffect(() => {
+    if (props.error) {
+      toast(props.errorMessage);
+    }
+  }, [props.error]);
+  useEffect(() => {
+    ValidatorForm.addValidationRule("isPasswordMatch", value => {
+        if (value !== password) {
+          return false;
+        }
+        return true;
+      });
+   }, [password,confirmPass])
 
-function ResetPassword(props){
-
-    const [password, setPassword] = useState('');
-    const [confirmPass, setConfirmPass] = useState('');
-    useEffect(()=>{
-      if(props.error){
-        toast(props.errorMessage);
-      }
-    }, [ props.error])
-    
-    
-  
   const handleFormSubmit = () => {
-    // const emailObj = {
-    //   "email": email
-    // }
-    // props.resetPassword(emailObj, props.history)
-  }
+    const resetPassObj = {
+      "password": password
+    }
+    props.resetPassword(resetPassObj, props.history)
+  };
 
-
-    return (
+  return (
     <div className="signup flex flex-center w-100 h-100vh">
-    <div className="p-8">
-      <Card className="signup-card position-relative y-center">
-        <Grid container>
-          <Grid item lg={5} md={5} sm={5} xs={12}>
-            <div className="p-32 flex flex-center flex-middle h-100">
-              <img src="/assets/images/illustrations/dreamer.svg" alt="" />
-            </div>
-          </Grid>
-          <Grid item lg={7} md={7} sm={7} xs={12}>
-            <div className="p-36 h-100 bg-light-gray position-relative">
-            <ToastContainer />
-              <ValidatorForm useRef="form" onSubmit={handleFormSubmit}>
-              <TextValidator
-                className="mb-16 w-100"
-                label="New Password"
-                onChange={(e) => {setPassword(e.target.value)}}
-                name="password"
-                type="password"
-                value={password}
-                validators={["required", "isPasswordMatch"]}
-                errorMessages={[
-                  "Required",
-                  "password didn't match"
-                ]}
-              />
-              <TextValidator
-                className="mb-16 w-100"
-                label="Confirm New Password"
-                onChange={(e) => {setConfirmPass(e.target.value)}}
-                name="confirmPass"
-                type="password"
-                value={confirmPass}
-                validators={["required", "isPasswordMatch"]}
-                errorMessages={[
-                  "Required",
-                  "password didn't match"
-                ]}
-              />                   
-                <div className="flex flex-middle">
-                  <Button variant="contained" color="primary" type="submit">
-                    Update Password
-                  </Button>
-                  {/* <span className="ml-16 mr-8">or</span> */}
-                  {/* <Button
+      <div className="p-8">
+        <Card className="signup-card position-relative y-center">
+          <Grid container>
+            <Grid item lg={5} md={5} sm={5} xs={12}>
+              <div className="p-32 flex flex-center flex-middle h-100">
+                <img src="/assets/images/illustrations/dreamer.svg" alt="" />
+              </div>
+            </Grid>
+            <Grid item lg={7} md={7} sm={7} xs={12}>
+              <div className="p-36 h-100 bg-light-gray position-relative">
+                <ToastContainer />
+                <ValidatorForm useRef="form" onSubmit={handleFormSubmit}>
+                  <TextValidator
+                    className="mb-16 w-100"
+                    label="New Password"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                    name="password"
+                    type="password"
+                    value={password}
+                    validators={["required", "isPasswordMatch"]}
+                    errorMessages={["Required", "password didn't match"]}
+                  />
+                  <TextValidator
+                    className="mb-16 w-100"
+                    label="Confirm New Password"
+                    onChange={(e) => {
+                      setConfirmPass(e.target.value);
+                    }}
+                    name="confirmPass"
+                    type="password"
+                    value={confirmPass}
+                    validators={["required", "isPasswordMatch"]}
+                    errorMessages={["Required", "password didn't match"]}
+                  />
+                  <div className="flex flex-middle">
+                    <Button variant="contained" color="primary" type="submit">
+                      Update Password
+                    </Button>
+                    {/* <span className="ml-16 mr-8">or</span> */}
+                    {/* <Button
                     className="capitalize"
                     onClick={() =>
                       props.history.push("/session/signin")
@@ -94,31 +90,25 @@ function ResetPassword(props){
                   >
                     Sign in
                   </Button> */}
-                </div>
-              </ValidatorForm>
-            </div>
+                  </div>
+                </ValidatorForm>
+              </div>
+            </Grid>
           </Grid>
-        </Grid>
-      </Card>
+        </Card>
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
-const mapStateToProps = state => ({
-    // resetPassword: PropTypes.func.isRequired,
-    // login: state.login,
-    // error: state.login.error,
-    // errorMessage: state.login.errorMessage
-  });
-  export default withRouter(
-    connect(
-      mapStateToProps,
-      {
-        //    resetPassword 
-        }
-    )(
-        ResetPassword
-        )
-  );
-  
+const mapStateToProps = (state) => ({
+  // resetPassword: PropTypes.func.isRequired,
+  // login: state.login,
+  error: state.resetPass.error,
+  errorMessage: state.resetPass.errorMessage
+});
+export default withRouter(
+  connect(mapStateToProps, {
+       resetPassword
+  })(ResetPassword)
+);

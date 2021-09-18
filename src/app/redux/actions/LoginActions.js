@@ -70,7 +70,7 @@ export const resetPassword = (body, history) => (dispatch) => {
       // dispatch(success({}));
       toast.success('A reset link has been sent to yor email address');
       setTimeout(() => {
-        history.push('/session/resetPass');
+        history.push('/session/signin');
       }, 2500)
 
     }).catch(err => {
