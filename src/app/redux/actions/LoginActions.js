@@ -32,6 +32,8 @@ export const loginWithEmailAndPassword = (email, password, history) => (dispatch
       localStorage.setItem('preferredLanguage', data.preferredLanguage);
       localStorage.setItem('resetPasswordExpires', data.resetPasswordExpires);
       localStorage.setItem('resetPasswordToken', data.resetPasswordToken);
+      localStorage.setItem('isLogIn', true);
+      localStorage.setItem('authorization', data.authorization);
       localStorage.setItem('status', data.status);
       dispatch(success({}));
       toast.success('LogIn Successful');

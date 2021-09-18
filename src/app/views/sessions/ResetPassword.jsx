@@ -9,12 +9,11 @@ import { resetPassword } from "../../redux/actions/ResetPassAction";
 import { useLocation } from "react-router-dom";
 
 function ResetPassword(props) {
-
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-const search = useLocation().search;
-const id=new URLSearchParams(search).get("token");
-console.log(id);//12345
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get("token");
+  // console.log(id);//12345
 
   useEffect(() => {
     if (props.error) {
@@ -22,19 +21,19 @@ console.log(id);//12345
     }
   }, [props.error]);
   useEffect(() => {
-    ValidatorForm.addValidationRule("isPasswordMatch", value => {
-        if (value !== password) {
-          return false;
-        }
-        return true;
-      });
-   }, [password,confirmPass])
+    ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
+      if (value !== password) {
+        return false;
+      }
+      return true;
+    });
+  }, [password, confirmPass]);
 
   const handleFormSubmit = () => {
     const resetPassObj = {
-      "password": password
-    }
-    props.resetPassword(resetPassObj, id,props.history)
+      password: password,
+    };
+    props.resetPassword(resetPassObj, id, props.history);
   };
 
   return (
@@ -103,10 +102,10 @@ const mapStateToProps = (state) => ({
   // resetPassword: PropTypes.func.isRequired,
   // login: state.login,
   error: state.resetPass.error,
-  errorMessage: state.resetPass.errorMessage
+  errorMessage: state.resetPass.errorMessage,
 });
 export default withRouter(
   connect(mapStateToProps, {
-       resetPassword
+    resetPassword,
   })(ResetPassword)
 );

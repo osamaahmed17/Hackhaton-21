@@ -154,11 +154,6 @@ function SignUp(props) {
   );
 }
 
-// const mapStateToProps = state => ({
-//   // setUser: PropTypes.func.isRequired
- 
-//   error: state.
-// });
 
 const mapStateToProps = (state, props )=> {
   return {

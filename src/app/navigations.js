@@ -20,31 +20,36 @@ export const navigations = [{
   //     }
   //   ]
   // },
-  {
-    name: "Send Email",
-    icon: "email",
-    path: "/sendEmail"
-  },
-  {
-    name: "Site Pages",
-    icon: "tab",
-    path: "/pageList"
-  },
-  {
-    name: "Contact Us",
-    icon: "contacts",
-    path: "/contactUs"
-  },
+  // {
+  //   name: "Send Email",
+  //   icon: "email",
+  //   path: "/sendEmail"
+  // },
+  // {
+  //   name: "Site Pages",
+  //   icon: "tab",
+  //   path: "/pageList"
+  // },
+  // {
+  //   name: "Contact Us",
+  //   icon: "contacts",
+  //   path: "/contactUs"
+  // },
 
+  // {
+  //   name: "Subscriptions",
+  //   icon: "person",
+  //   path: "/SubscriptionList"
+  // },
+  // {
+  //   name: "Blog",
+  //   icon: "menu_book",
+  //   path: "/blog"
+  // },
   {
-    name: "Subscriptions",
-    icon: "person",
-    path: "/SubscriptionList"
-  },
-  {
-    name: "Blog",
+    name: "Bank Auth",
     icon: "menu_book",
-    path: "/blog"
+    path: "/bankAuth"
   },
   {
     name: "Settings",

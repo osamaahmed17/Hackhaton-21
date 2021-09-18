@@ -24,6 +24,7 @@ import changeEmailRoutes from './views/ChangeEmail/ChangeEmailRoutes';
 import blogRoutes from './views/Blog/BlogRoutes';
 import editBlogRoutes from './views/EditBlog/EditBlogRoutes';
 import addBlogRoutes from './views/AddBlog/AddBlogRoutes';
+import bankAuthRoutes  from './views/BankAuthentication/BankAuthRoutes';
 
 const redirectRoute = [
   {
@@ -59,7 +60,9 @@ const routes = [
   ...formsRoutes,
   ...mapRoutes,
   ...redirectRoute,
-  ...errorRoute
+  
+  ...bankAuthRoutes,
+  ...errorRoute,
 ];
 
 export default routes;

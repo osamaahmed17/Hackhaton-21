@@ -18,6 +18,7 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+
 function SignIn(props) {
   const styles = theme => ({
     wrapper: {
