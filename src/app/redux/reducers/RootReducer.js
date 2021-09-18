@@ -14,9 +14,11 @@ import dashboardReducers from "./dashboardReducer";
 import dashboardGraphReducers from "./dashboardGraphReducer";
 import SettingsReducers from './SettingsRedcuers';
 import sitePagesReducers from './sitePagesReducers';
+import signUpReducers from './signUpReducers';
 
 const RootReducer = combineReducers({
   login: LoginReducer,
+  signUp: signUpReducers,
   user: UserReducer,
   layout: LayoutReducer,
   scrumboard: ScrumBoardReducer,

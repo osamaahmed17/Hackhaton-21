@@ -3,6 +3,9 @@ import {
   setUserData
 } from "./UserActions";
 import history from "history.js";
+import {
+  toast
+} from 'react-toastify';
 import axios from 'axios';
 export const LOGIN_ERROR = "LOGIN_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -26,12 +29,16 @@ export const loginWithEmailAndPassword = (email, password, history) => (dispatch
       localStorage.setItem('confirmationCode', data.confirmationCode);
       localStorage.setItem('city', data.city);
       localStorage.setItem('postalCode', data.postalCode);
-      localStorage.setItem('preferredLanguage', data.preferredLanguage); 
-         localStorage.setItem('resetPasswordExpires', data.resetPasswordExpires);
+      localStorage.setItem('preferredLanguage', data.preferredLanguage);
+      localStorage.setItem('resetPasswordExpires', data.resetPasswordExpires);
       localStorage.setItem('resetPasswordToken', data.resetPasswordToken);
       localStorage.setItem('status', data.status);
       dispatch(success({}));
-      history.push('/');
+      toast.success('LogIn Successful');
+      setTimeout(() => {
+        history.push('/');
+      }, 2500)
+
     }).catch(err => {
       dispatch(failure(err));
       localStorage.clear();
@@ -51,15 +58,25 @@ function failure(error) {
     error
   };
 }
-export function resetPassword({
-  email
-}) {
-  return dispatch => {
-    dispatch({
-      payload: email,
-      type: RESET_PASSWORD
-    });
-  };
+export const resetPassword = (body, history) => (dispatch) => {
+  axios.post('rest/api/v1/forgot', body, {
+
+    })
+    .then(response => {
+      const {
+        data
+      } = response['data'];
+
+      // dispatch(success({}));
+      toast.success('A reset link has been sent to yor email address');
+      setTimeout(() => {
+        history.push('/session/signin');
+      }, 2500)
+
+    }).catch(err => {
+      // dispatch(failure(err));
+      localStorage.clear();
+    })
 }
 
 export function firebaseLoginEmailPassword({
@@ -73,7 +90,7 @@ export function firebaseLoginEmailPassword({
           dispatch(
             setUserData({
               userId: "1",
-              role: "ADMIN", 
+              role: "ADMIN",
               displayName: "Watson Joyce",
               email: "watsonjoyce@gmail.com",
               photoURL: "/assets/images/face-7.jpg",
@@ -85,7 +102,7 @@ export function firebaseLoginEmailPassword({
 
           history.push({
             pathname: "/"
-          }); 
+          });
 
           return dispatch({
             type: LOGIN_SUCCESS

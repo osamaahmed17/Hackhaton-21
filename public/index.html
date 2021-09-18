@@ -111,6 +111,22 @@
         })
       }
     </script>
+    
+    <script>
+      window.watsonAssistantChatOptions = {
+          integrationID: "49854fb8-32b1-4505-9e70-fd1e4ba211e2", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "a62122df-580d-4a8a-ab29-0924981d8ef3", // The ID of your service instance.
+          onLoad: function(instance) { instance.render(); }
+        };
+      setTimeout(function(){
+        const t=document.createElement('script');
+        t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+          (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+          "/WatsonAssistantChatEntry.js"
+        document.head.appendChild(t);
+      });
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

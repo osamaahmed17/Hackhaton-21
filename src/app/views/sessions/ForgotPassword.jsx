@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   Card,
   Grid,
@@ -11,23 +11,19 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
 
+import { ToastContainer } from 'react-toastify';
 import { resetPassword } from "../../redux/actions/LoginActions";
 
-class ForgotPassword extends Component {
-  state = {
-    email: "watson@example.com"
-  };
-  handleChange = event => {
-    event.persist();
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-  handleFormSubmit = () => {
-    this.props.resetPassword({ ...this.state });
-  };
-  render() {
-    let { email } = this.state;
+function ForgotPassword(props) {
+
+  const [email, setEmail] = useState('');
+
+const handleFormSubmit = () => {
+  const emailObj = {
+    "email": email
+  }
+  props.resetPassword(emailObj, props.history)
+}
 
     return (
       <div className="signup flex flex-center w-100 h-100vh">
@@ -41,19 +37,20 @@ class ForgotPassword extends Component {
               </Grid>
               <Grid item lg={7} md={7} sm={7} xs={12}>
                 <div className="p-36 h-100 bg-light-gray position-relative">
-                  <ValidatorForm ref="form" onSubmit={this.handleFormSubmit}>
+                <ToastContainer />
+                  <ValidatorForm useRef="form" onSubmit={handleFormSubmit}>
                     <TextValidator
                       className="mb-24 w-100"
                       variant="outlined"
                       label="Email"
-                      onChange={this.handleChange}
+                      onChange={(e) => { setEmail(e.target.value)}}
                       type="email"
-                      name="email"
+                      name="Email"
                       value={email}
                       validators={["required", "isEmail"]}
                       errorMessages={[
-                        "this field is required",
-                        "email is not valid"
+                        "Required",
+                        "Email is not valid"
                       ]}
                     />
                     <div className="flex flex-middle">
@@ -64,7 +61,7 @@ class ForgotPassword extends Component {
                       <Button
                         className="capitalize"
                         onClick={() =>
-                          this.props.history.push("/session/signin")
+                          props.history.push("/session/signin")
                         }
                       >
                         Sign in
@@ -79,7 +76,7 @@ class ForgotPassword extends Component {
       </div>
     );
   }
-}
+
 
 const mapStateToProps = state => ({
   resetPassword: PropTypes.func.isRequired,

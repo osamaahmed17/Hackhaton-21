@@ -9,35 +9,35 @@ import {
   CircularProgress} from "@material-ui/core";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
-// import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
 import { signUpUser } from "../../redux/actions/signUpActions";
 import { withRouter } from "react-router-dom";
-
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 import { ToastContainer } from 'react-toastify';
 import { prototype } from "react-autosuggest";
+
 
 function SignUp(props) {
 
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
-  const [city, setCity] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [prefLng, setPrefLng] = useState('en');
+  const [ cnicNumber, setCnicNumber ] = useState('');
+  const [ phoneNumber, setPhoneNumber ] = useState('');
 
   const handleFormSubmit = () => {
     const signUpObj = {
-      "city": city,
+
+   
       "email": email,
       "password": password,
-      "postalCode": parseInt(postalCode),
-      "preferredLanguage": prefLng
+      "cnicNumber": cnicNumber,
+      "mobileNumber": phoneNumber
     }
     props.signUpUser(signUpObj, props.history);
   }
-
-
+console.log('PopL',props.error, props.errorMessage)
   return (
     <div className="signup flex flex-center w-100 h-100vh">
       <div className="p-8">
@@ -53,9 +53,9 @@ function SignUp(props) {
             </Grid>
             <Grid item lg={7} md={7} sm={7} xs={12}>
               <div className="p-36 h-100">
-              <ToastContainer />
+            
                 <ValidatorForm useRef="form" onSubmit={handleFormSubmit}>
-
+               
                   <TextValidator
                     className="mb-24 w-100"
                     variant="outlined"
@@ -70,6 +70,7 @@ function SignUp(props) {
                       "email is not valid"
                     ]}
                   />
+                   <ToastContainer />
                   <TextValidator
                     className="mb-16 w-100"
                     label="Password"
@@ -81,26 +82,31 @@ function SignUp(props) {
                     validators={["required"]}
                     errorMessages={["this field is required"]}
                   />
-                  <TextValidator
+                
+                    <PhoneInput
+                      className="mb-24 w-100"
+      placeholder="Enter phone number"
+      defaultCountry="PK"
+      value={phoneNumber}
+      min="11"
+      max="11"
+      onChange={setPhoneNumber}/>
+
+              
+                   <TextValidator
                     className="mb-24 w-100"
                     variant="outlined"
-                    label="City"
-                    onChange={(e) => { setCity(e.target.value) }}
-                    type="text"
-                    name="city"
-                    value={city}
-                    validators={["required"]}
-                    errorMessages={["this field is required"]}
-                  />
-                  <TextValidator
-                    className="mb-24 w-100"
-                    variant="outlined"
-                    label="Postal Code"
-                    onChange={(e) => { setPostalCode(e.target.value) }}
-                    type="number"
-                    name="postalCode"
-                    value={postalCode}
-                    validators={["required"]}
+                    max="13"
+                    min="12"
+                    label="CNIC Number(13 digits)"
+                    onChange={(e) => { setCnicNumber(e.target.value) }}
+                    type="tel"
+                    name="cnicNumber"
+                    value={cnicNumber}
+                    pattern="^\d{5}-\d{8}-\d{1}$"
+                    validators={["required",
+                    "minStringLength: 13",
+                    "maxStringLength: 13"]}
                     errorMessages={["this field is required"]}
                   />
                   {/* <FormControlLabel
@@ -141,11 +147,19 @@ function SignUp(props) {
   );
 }
 
-const mapStateToProps = state => ({
-  // setUser: PropTypes.func.isRequired
-  signUpUser: PropTypes.func.isRequired,
-});
+// const mapStateToProps = state => ({
+//   // setUser: PropTypes.func.isRequired
+ 
+//   error: state.
+// });
 
+const mapStateToProps = (state, props )=> {
+  return {
+    signUpUser: PropTypes.func.isRequired,
+     error: state.signUp.error,
+     errorMessage: state.signUp.errorMessage
+  }
+  }
 export default withStyles(prototype.styles, { withTheme: true })(
   withRouter(
     connect(

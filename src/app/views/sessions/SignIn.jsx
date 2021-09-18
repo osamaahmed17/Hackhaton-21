@@ -15,6 +15,7 @@ import { withRouter } from "react-router-dom";
 import { loginWithEmailAndPassword } from "../../redux/actions/LoginActions";
 import { prototype } from "react-autosuggest";
 import { Alert, AlertTitle } from '@material-ui/lab';
+import { ToastContainer } from 'react-toastify';
 
 function SignIn(props) {
   const styles = theme => ({
@@ -52,6 +53,8 @@ function SignIn(props) {
             </Grid>
             <Grid item lg={7} md={7} sm={7} xs={12}>
               <div className="p-36 h-100 bg-light-gray position-relative">
+                
+        <ToastContainer />
                 <ValidatorForm onSubmit={handleFormSubmit}>
                   <TextValidator
                     className="mb-24 w-100"
@@ -115,14 +118,14 @@ function SignIn(props) {
                         Sign up
                       </Button>
                   </div>
-                  {/* <Button
+                  <Button
                     className="text-primary"
                   onClick={() =>
-                    this.props.history.push("/session/forgot-password")
+                    props.history.push("/session/forgot-password")
                   }
                   >
                     Forgot password?
-                    </Button> */}
+                    </Button>
                 </ValidatorForm>
               </div>
             </Grid>
