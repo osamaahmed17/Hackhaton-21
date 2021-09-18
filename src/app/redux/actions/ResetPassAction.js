@@ -9,11 +9,11 @@ export const SET_RESET_PASS = "SET_RESET_PASS";
 export const RESET_PASS_SUCCESS = "RESET_PASS_SUCCESS";
 export const RESET_PASS_LOADING = "RESET_PASS_LOADING";
 
-export const resetPassword = (body, history) => {
+export const resetPassword = (body,id, history) => {
     return (dispatch) => {
         dispatch({ type: RESET_PASSWORD });
         axios
-          .post(`rest/api/v1/reset/`, body, {
+          .post(`rest/api/v1/reset/${id}`, body, {
         
           })
           .then((res) => {

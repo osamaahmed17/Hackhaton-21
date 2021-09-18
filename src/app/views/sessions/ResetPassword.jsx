@@ -12,12 +12,10 @@ function ResetPassword(props) {
 
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-//   const params = new URLSearchParams(window.location.search);
-//   const yourParamName = params.get('yourParamName');
-//   console.log('Pa',yourParamName, params)
 const search = useLocation().search;
 const id=new URLSearchParams(search).get("token");
 console.log(id);//12345
+
   useEffect(() => {
     if (props.error) {
       toast(props.errorMessage);
@@ -36,7 +34,7 @@ console.log(id);//12345
     const resetPassObj = {
       "password": password
     }
-    props.resetPassword(resetPassObj, props.history)
+    props.resetPassword(resetPassObj, id,props.history)
   };
 
   return (
