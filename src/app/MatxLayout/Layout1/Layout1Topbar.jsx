@@ -174,13 +174,13 @@ class Layout1Topbar extends Component {
                     // />
                   }
                 >
-                  <MenuItem style={{ minWidth: 185 }}>
+                  {/* <MenuItem style={{ minWidth: 185 }}>
                     <Link className="flex flex-middle" to="/">
                       <Icon> home </Icon>
                       <span className="pl-16"> Home </span>
                     </Link>
-                  </MenuItem>
-                  <MenuItem style={{ minWidth: 185 }}>
+                  </MenuItem> */}
+                  {/* <MenuItem style={{ minWidth: 185 }}>
                     <Link
                       className="flex flex-middle"
                       to="/page-layouts/user-profile"
@@ -188,22 +188,22 @@ class Layout1Topbar extends Component {
                       <Icon> person </Icon>
                       <span className="pl-16"> Profile </span>
                     </Link>
-                  </MenuItem>
-                  <MenuItem
+                  </MenuItem> */}
+                  {/* <MenuItem
                     className="flex flex-middle"
                     style={{ minWidth: 185 }}
                   >
                     <Icon> settings </Icon>
                     <span className="pl-16"> Settings </span>
-                  </MenuItem>
-                  <MenuItem
+                  </MenuItem> */}
+                  {/* <MenuItem
                     onClick={this.handleSignOut}
                     className="flex flex-middle"
                     style={{ minWidth: 185 }}
                   >
                     <Icon> power_settings_new </Icon>
                     <span className="pl-16"> Logout </span>
-                  </MenuItem>
+                  </MenuItem> */}
                 </MatxMenu>
               </div>
             </div>
