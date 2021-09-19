@@ -127,6 +127,28 @@ function Dashboard1() {
                 ))}
               </TableBody>
             </Table>
+            <div className="table-box">
+                <div>
+                  <strong>CompanyName</strong>
+                  <span>NOVA</span>
+                </div>
+                <div>
+                  <strong>MerchantType</strong>
+                  <span>0088</span>
+                </div>
+                <div>
+                  <strong>TraceNo</strong>
+                  <span>211309</span>
+                </div>
+                <div>
+                  <strong>Balance</strong>
+                  <span>$20210603201527</span>
+                </div>
+                <div>
+                  <strong>DateTime</strong>
+                  <span>25th March 2021</span>
+                </div>
+            </div>
           </div>
         ) : null}
       </div>
