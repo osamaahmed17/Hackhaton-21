@@ -274,7 +274,7 @@ class Layout1Sidenav extends Component {
 
         <div className="sidenav">
           <div className="sidenav__hold">
-          <img src="/assets/images/log-lg.png" alt="" className="bg-logo" />
+          <img src="/assets/images/logo-3.png" alt="" className="bg-logo" />
             {(
               <Fragment>
                 {this.renderLogoSwitch()}
