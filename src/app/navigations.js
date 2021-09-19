@@ -58,7 +58,7 @@ export const navigations = [{
   },
   {
     name: "Payment",
-    icon: "menu_book",
+    icon: "payment",
     path: "/debitTransfer"
   },
  

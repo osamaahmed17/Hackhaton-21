@@ -111,7 +111,7 @@ function Dashboard1() {
                 </div>
                 <div>
                   <strong>Balance</strong>
-                  <span>$20210603201527</span>
+                  <span>Rs.20210603201527</span>
                 </div>
                 <div>
                   <strong>DateTime</strong>
