@@ -95,38 +95,7 @@ function Dashboard1() {
         ) : null}
         {isVerify === true ? (
           <div className="w-full overflow-auto">
-            <Table className="whitespace-pre">
-              <TableHead>
-                <TableRow>
-                  <TableCell className="px-0">CompanyName</TableCell>
-                  <TableCell className="px-0">MerchantType</TableCell>
-                  <TableCell className="px-0">TraceNo</TableCell>
-                  <TableCell className="px-0">Balance</TableCell>
-                  <TableCell className="px-0">DateTime</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {balanceInquiryList?.map((balanceInquiry, index) => (
-                  <TableRow key={index}>
-                    <TableCell className="px-0 capitalize" align="left">
-                      {balanceInquiry.CompanyName}
-                    </TableCell>
-                    <TableCell className="px-0 capitalize" align="left">
-                      {balanceInquiry.MerchantType}
-                    </TableCell>
-                    <TableCell className="px-0 capitalize" align="left">
-                      {balanceInquiry.TraceNo}
-                    </TableCell>
-                    <TableCell className="px-0 capitalize">
-                      {balanceInquiry.Balance}
-                    </TableCell>
-                    <TableCell className="px-0 capitalize">
-                      ${balanceInquiry.DateTime}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+           
             <div className="table-box">
                 <div>
                   <strong>CompanyName</strong>
