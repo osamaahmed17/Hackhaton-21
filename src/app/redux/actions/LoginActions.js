@@ -41,7 +41,7 @@ export const loginWithEmailAndPassword = (email, password, history) => (dispatch
       toast.success('LogIn Successful');
       setTimeout(() => {
         history.push('/');
-        // window.location.reload();
+        window.location.reload();
       }, 2500)
 
     }).catch(err => {

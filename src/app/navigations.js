@@ -56,6 +56,12 @@ export const navigations = [{
     icon: "menu_book",
     path: "/accountCreation"
   },
+  {
+    name: "Payment",
+    icon: "menu_book",
+    path: "/debitTransfer"
+  },
+ 
   // {
   //   name: "Settings",
   //   icon: "settings",

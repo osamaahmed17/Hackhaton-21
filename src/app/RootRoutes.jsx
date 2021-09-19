@@ -26,6 +26,8 @@ import editBlogRoutes from './views/EditBlog/EditBlogRoutes';
 import addBlogRoutes from './views/AddBlog/AddBlogRoutes';
 import bankAuthRoutes  from './views/BankAuthentication/BankAuthRoutes';
 import accountCreationRoutes from './views/AccountCreation/AccountCreationRoutes';
+import creditTransferRoutes from './views/CreditTransfer/CreditTransferRoutes';
+import debitTransferRoutes from "./views/DebitTransfer/DebitTransferRoutes";
 
 const redirectRoute = [
   {
@@ -63,6 +65,8 @@ const routes = [
   ...redirectRoute,
   ...accountCreationRoutes,
   ...bankAuthRoutes,
+  ...creditTransferRoutes,
+  ...debitTransferRoutes,
   ...errorRoute,
 ];
 
