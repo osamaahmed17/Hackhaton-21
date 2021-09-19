@@ -20,7 +20,7 @@ axios.interceptors.response.use(
 		const { status } = error.response;
 		if (status === UNAUTHORIZED ) {
 			localStorage.clear();
-			dispatch(logoutUser());
+			dispatch(logoutUser()); 
 			// props.history.push({
 			// 	pathname: "/session/signin"
 			// });

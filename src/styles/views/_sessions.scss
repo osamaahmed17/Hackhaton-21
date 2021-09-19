@@ -243,6 +243,19 @@ h3.pagetitle {
 .MuiList-root-278 {
   position: relative;
 }
+.verify-msg {
+  margin: 0 0 30px;
+  p {
+    font-weight: 500;
+    margin: 0 0 25px;
+  }
+}
+.MuiTableCell-head {
+  font-weight: 600;
+}
+.MuiRadio-colorSecondary.Mui-checked {
+  color: #2355fe !important;
+}
 @media screen and (max-width:900px) {
   .signup .signup-card {
     min-width: 550px;
