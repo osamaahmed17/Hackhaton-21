@@ -5,7 +5,9 @@ import { authenticateUser } from "../../redux/actions/bankAuthActions";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { prototype } from "react-autosuggest";
-import { Icon, Grid, Button, withStyles } from "@material-ui/core";
+import { Icon, Grid, Button, withStyles,  Radio,
+  RadioGroup,
+  FormControlLabel, } from "@material-ui/core";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,9 +22,21 @@ function DebitTransfer(props) {
   const [terminalIdCredit, setTerminalIdCredit] = useState();
 
   
-
+const handlePayment = (e) => {
+  setProcessingCode(e.target.value);
+  // console.log('Pay:', e.target.value)
+ 
+}
   const handleSubmit = () => {
+    toast.success("Transation has been completed");
+ setTimeout(()=>{
+  props.history.push({
+    pathname: "/"
+  });
   
+  },1500);
+  
+
   };
 
   return (
@@ -34,19 +48,30 @@ function DebitTransfer(props) {
       >
         <Grid container spacing={6}>
           <Grid item lg={6} md={6} sm={12} xs={12}>
-            <ToastContainer />
-            {/* <TextValidator
-              className="mb-32 w-100"
-              label="Reserved One"
-              onChange={(e) => {
-                setReservedOne(e.target.value);
-              }}
-              type="number"
-              name="reservedOne"
-              value={reservedOne}
-              validators={["required"]}
-              errorMessages={["Required"]}
-            /> */}
+         
+          <ToastContainer />
+            <RadioGroup
+                                        className="mb-16"
+                                        value={processingCode}
+                                        name="processingCode"
+                                        onChange={handlePayment}
+                                        row 
+                                    > 
+                                        <FormControlLabel
+                                            value="creditpayment"
+                                            control={<Radio color="secondary" />}
+                                            label="Credit Payment"
+                                            labelPlacement="end"
+                                        />
+                                        <FormControlLabel
+                                            value="debitPayment"
+                                            control={<Radio color="secondary" />}
+                                            label="DebitPayment"
+                                            labelPlacement="end"
+                                        />
+
+                                    </RadioGroup>
+                                  
         { processingCode === "debitPayment" ?   <TextValidator
               className="mb-32 w-100"
               label="Channel Id"
@@ -139,7 +164,7 @@ function DebitTransfer(props) {
         </Grid>
         <Button color="primary" variant="contained" type="submit">
           <Icon>send</Icon>
-          <span className="pl-8 capitalize">Authenticate</span>
+          <span className="pl-8 capitalize">Send</span>
         </Button>
       </ValidatorForm>
     </div>

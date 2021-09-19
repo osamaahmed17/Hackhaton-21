@@ -49,10 +49,10 @@ class AuthGuard extends Component {
     const { location, history } = props;
     const { pathname } = location;
 
-    history.push({
-      pathname: "/session/signin",
-      state: { redirectUrl: pathname }
-    });
+    // history.push({
+    //   pathname: "/session/signin",
+    //   state: { redirectUrl: pathname }
+    // });
   }
 
   render() {

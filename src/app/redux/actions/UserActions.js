@@ -15,6 +15,7 @@ export function setUserData(user) {
 }
 
 export function logoutUser() {
+  // console.log('innnnnnnn')
   return dispatch => {
     jwtAuthService.logout();
     localStorage.clear();
