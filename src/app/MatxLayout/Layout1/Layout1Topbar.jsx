@@ -160,6 +160,12 @@ class Layout1Topbar extends Component {
                         className="cursor-pointer"
                         // src={user.avatar}
                     />
+                    <MenuItem
+                    onClick={this.handleSignOut}
+                    className="signoutlink"
+                  >
+                    <Icon> power_settings_new </Icon>
+                  </MenuItem>
                 </div>
                     // <img
                     //   className="mx-8 text-middle circular-image-small cursor-pointer"
