@@ -126,12 +126,43 @@ h3.pagetitle {
 }
 .bank-auth-wrap {
   padding: 45px;
+  .field-row {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin: 0 0 20px;
+    border-radius: 5px;
+    position: relative;
+    label {
+      position: absolute;
+      top: -7px;
+      left: 9px;
+      background: #fff;
+      padding-right: 5px;
+      font-size: 10px;
+      padding-left: 2px;
+    }
+    select,
+    .form-control {
+      padding: 10px 0;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+    .form-control {
+      width: calc(100% - 38px);
+    }
+  }
 }
 .titlebtn {
   .MuiButton-root {
     font-weight: 500;
     font-size: 15px;
     padding: 10px 30px;
+  }
+  &.mt10 {
+    margin-top: 10px;
   }
 }
 .MuiButton-root {
@@ -151,7 +182,7 @@ h3.pagetitle {
 }
 .sidenav .sidenav__hold {
   img {
-    padding: 20px;
+    padding: 30px 20px 0 20px;
   }
 }
 .sidenav .sidenav__hold .brand-area {
@@ -159,9 +190,57 @@ h3.pagetitle {
 }
 .sidenav .sidenav__hold .sidenav__user {
   margin: 0 0 15px;
+  display: none;
 }
 .sidenav .sidenav__hold .sidenav__user img {
   padding: 0;
+}
+.head-user {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  position: relative;
+  margin-left: 10px;
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    background: #ccd8ff;
+    content: '';
+    width: 1px;
+    height: 16px;
+  }
+  span {
+    margin-right: 15px;
+    color: #ccd8ff;
+    strong {
+      font-weight: 500;
+    }
+  }
+}
+.gen-otp {
+  margin: 0 0 25px !important;
+}
+.topbar .MuiIcon-root-50 {
+  font-size: 18px;
+}
+.Toastify__toast {
+  font-family: 'Montserrat', sans-serif !important;
+  background: rgba(7,188,12,.75) !important;
+  padding: 0 0 0 20px !important;
+  min-height: 55px !important;
+}
+.Toastify__toast-container {
+  min-width: 300px !important;
+  width: 40% !important;
+}
+.Toastify__toast-container--top-right {
+  bottom: 1em !important;
+  top: auto !important;
+  right: 1em !important;
+}
+.MuiList-root-278 {
+  position: relative;
 }
 @media screen and (max-width:900px) {
   .signup .signup-card {

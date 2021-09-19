@@ -13,7 +13,7 @@ function ResetPassword(props) {
   const [confirmPass, setConfirmPass] = useState("");
   const search = useLocation().search;
   const id = new URLSearchParams(search).get("token");
-  // console.log(id);//12345
+ 
 
   useEffect(() => {
     if (props.error) {

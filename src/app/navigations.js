@@ -47,25 +47,30 @@ export const navigations = [{
   //   path: "/blog"
   // },
   {
-    name: "Bank Auth",
-    icon: "menu_book",
+    name: "Bank Authentication",
+    icon: "lock",
     path: "/bankAuth"
   },
   {
-    name: "Settings",
-    icon: "settings",
-    children: [{
-        name: "Change Password",
-        path: "/changePass",
-        icon: "lock"
-      },
-      {
-        name: "Change Email",
-        path: "/changeEmail",
-        icon: "alternate_email"
-      }
-    ]
+    name: "Account Creation",
+    icon: "person",
+    path: "/accountCreation"
   },
+  // {
+  //   name: "Settings",
+  //   icon: "settings",
+  //   children: [{
+  //       name: "Change Password",
+  //       path: "/changePass",
+  //       icon: "lock"
+  //     },
+  //     {
+  //       name: "Change Email",
+  //       path: "/changeEmail",
+  //       icon: "alternate_email"
+  //     }
+  //   ]
+  // },
   // {
   //   name: "Drag and Drop",
   //   icon: "control_camera",

@@ -37,6 +37,10 @@ function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agreement, setAggrement] = useState("");
+
+  useEffect(()=>{
+window.localStorage.removeItem('token');
+  },[])
   useEffect(()=>{
     if(props.error){
       toast(props.errorMessage);
@@ -47,7 +51,6 @@ function SignIn(props) {
     props.loginWithEmailAndPassword( email, password , props.history);
   };
   
-// console.log('Login Prop:', props.error, props.errorMessage)
   return (
     <div className="signup flex flex-center w-100 h-100vh">
      
