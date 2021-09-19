@@ -12,6 +12,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function DebitTransfer(props) {
+  const userAuthentication = localStorage.getItem("userAuthentication");
+  const isAccountOpen = localStorage.getItem("isAccountOpen");
+ 
   const [processingCode, setProcessingCode] = useState('creditpayment')
   const [channelId, setChannelId] = useState();
   const [terminalId, setTerminalId] = useState();
@@ -41,7 +44,8 @@ const handlePayment = (e) => {
 
   return (
     <div className="bank-auth-wrap">
-      <ValidatorForm
+ {(!isAccountOpen && !userAuthentication) ||
+            (isAccountOpen === "true" && userAuthentication === "true") ?      <ValidatorForm
         useRef="form"
         onSubmit={handleSubmit}
         onError={(errors) => null}
@@ -176,7 +180,9 @@ const handlePayment = (e) => {
         </Button>
         </div>
       </ValidatorForm>
-    </div>
+: <p> You need to verify OTP again to view your credit and bank inquiry
+for security and privacy reason</p>}
+</div> 
   );
 }
 
