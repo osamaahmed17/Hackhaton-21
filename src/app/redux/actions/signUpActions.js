@@ -20,7 +20,7 @@ export const signUpUser = (body, history) => (dispatch) => {
     })
     .then(response => {
       dispatch(success({}));
-      toast.success("User has been registered");
+      toast.success("User has been registered, Kindly check your Email for Confirmination!");
       setTimeout(() => {
         history.push('/session/signin');
       }, 3500)
