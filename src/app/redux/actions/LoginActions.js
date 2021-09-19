@@ -32,13 +32,16 @@ export const loginWithEmailAndPassword = (email, password, history) => (dispatch
       localStorage.setItem('preferredLanguage', data.preferredLanguage);
       localStorage.setItem('resetPasswordExpires', data.resetPasswordExpires);
       localStorage.setItem('resetPasswordToken', data.resetPasswordToken);
-      localStorage.setItem('isLogIn', true);
+      localStorage.setItem('isLogIn', 'true');
       localStorage.setItem('authorization', data.authorization);
       localStorage.setItem('status', data.status);
+      localStorage.setItem('isAccountOpen', data.isAccountOpen);
+      localStorage.setItem('userAuthentication', data.userAuthentication);
       dispatch(success({}));
       toast.success('LogIn Successful');
       setTimeout(() => {
         history.push('/');
+        // window.location.reload();
       }, 2500)
 
     }).catch(err => {

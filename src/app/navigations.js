@@ -56,21 +56,21 @@ export const navigations = [{
     icon: "menu_book",
     path: "/accountCreation"
   },
-  {
-    name: "Settings",
-    icon: "settings",
-    children: [{
-        name: "Change Password",
-        path: "/changePass",
-        icon: "lock"
-      },
-      {
-        name: "Change Email",
-        path: "/changeEmail",
-        icon: "alternate_email"
-      }
-    ]
-  },
+  // {
+  //   name: "Settings",
+  //   icon: "settings",
+  //   children: [{
+  //       name: "Change Password",
+  //       path: "/changePass",
+  //       icon: "lock"
+  //     },
+  //     {
+  //       name: "Change Email",
+  //       path: "/changeEmail",
+  //       icon: "alternate_email"
+  //     }
+  //   ]
+  // },
   // {
   //   name: "Drag and Drop",
   //   icon: "control_camera",

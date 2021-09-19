@@ -88,6 +88,7 @@ class Layout1Sidenav extends Component {
 
   handleSignOut = () => {
     this.props.logoutUser();
+    window.location.reload();
   };
 
   renderLogoSwitch = () => (

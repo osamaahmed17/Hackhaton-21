@@ -32,7 +32,6 @@ const handleFormSubmit = () => {
   }
   props.resetPassword(emailObj, props.history)
 }
-// console.log('Forget Prop:', props.error, props.errorMessage)
     return (
       <div className="signup flex flex-center w-100 h-100vh">
         <div className="p-8">

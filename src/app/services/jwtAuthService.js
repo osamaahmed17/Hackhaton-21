@@ -59,7 +59,7 @@ class JwtAuthService {
   // Set token to all http request header, so you don't need to attach everytime
   setSession = token => {
     if (token) {
-      localStorage.setItem("jwt_token", token);
+      // localStorage.setItem("jwt_token", token);
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     } else {
       localStorage.removeItem("jwt_token");
@@ -69,7 +69,7 @@ class JwtAuthService {
 
   // Save user to localstorage
   setUser = (user) => {    
-    localStorageService.setItem("auth_user", user);
+    // localStorageService.setItem("auth_user", user);
   }
   // Remove user from localstorage
   removeUser = () => {
