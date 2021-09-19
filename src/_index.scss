@@ -9,7 +9,9 @@ body {
   overflow: hidden;
   position: relative;
 }
-
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

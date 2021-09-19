@@ -32,14 +32,15 @@ function BankAuth(props) {
   };
 
   return (
-    <div>
+    <div className="bank-auth-wrap">
       <ValidatorForm
         useRef="form"
         onSubmit={handleSubmit}
         onError={(errors) => null}
       >
-        <Grid container spacing={6}>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
+        <Grid container>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <h3 className="pagetitle">Bank Authentication</h3>
             <ToastContainer />
             <TextValidator
               className="mb-32 w-100"
@@ -49,6 +50,7 @@ function BankAuth(props) {
               }}
               type="number"
               name="reservedOne"
+              variant="outlined"
               value={reservedOne}
               validators={["required"]}
               errorMessages={["Required"]}
@@ -56,6 +58,7 @@ function BankAuth(props) {
             <TextValidator
               className="mb-32 w-100"
               label="Conpany Name"
+              variant="outlined"
               onChange={(e) => {
                 setCompanyName(e.target.value);
               }}
@@ -68,6 +71,7 @@ function BankAuth(props) {
             <TextValidator
               className="mb-32 w-100"
               label="Transaction Type"
+              variant="outlined"
               onChange={(e) => {
                 setTtransactionType(e.target.value);
               }}
@@ -81,6 +85,7 @@ function BankAuth(props) {
             <TextValidator
               className="mb-32 w-100"
               label="Merchat Type"
+              variant="outlined"
               onChange={(e) => {
                 setMerchantType(e.target.value);
               }}
@@ -91,13 +96,13 @@ function BankAuth(props) {
               errorMessages={["Required"]}
             />
           </Grid>
-
-          <Grid item lg={6} md={6} sm={12} xs={12}></Grid>
         </Grid>
-        <Button color="primary" variant="contained" type="submit">
-          <Icon>send</Icon>
-          <span className="pl-8 capitalize">Authenticate</span>
-        </Button>
+        <div className="titlebtn">
+          <Button color="primary" variant="contained" type="submit">
+            <Icon>send</Icon>
+            <span className="pl-8">Authenticate</span>
+          </Button>
+        </div>
       </ValidatorForm>
     </div>
   );

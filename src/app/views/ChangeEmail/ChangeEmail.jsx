@@ -59,14 +59,15 @@ function ChangeEmail(props) {
         setOpen(false);
     };
     return (
-        <div className="m-sm-30">
-            <div className="mb-sm-30">
+        <div className="bank-auth-wrap">
+            <h3 className="pagetitle">Change Email</h3>
+            {/* <div className="mb-sm-30">
                 <Breadcrumb
                     routeSegments={[
                         { name: "Change Email" }
                     ]}
                 />
-            </div>
+            </div> */}
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -101,7 +102,7 @@ function ChangeEmail(props) {
                     name="oldEmail"
                     type="email"
                     value={oldEmail}
-
+                    variant="outlined"
                     validators={["required"]}
                     errorMessages={[
                         "Required",
@@ -114,6 +115,7 @@ function ChangeEmail(props) {
                     onChange={handleChange}
                     name="newEmail"
                     type="email"
+                    variant="outlined"
                     value={newEmail}
                     validators={["required"]}
                     errorMessages={[
@@ -122,12 +124,12 @@ function ChangeEmail(props) {
                 />
 
 
-                <div>
+                <div className="buttons-pagerow">
                     <Button color="primary" variant="contained" type="submit">
-                        <Icon>submit</Icon>
+                        <Icon>update</Icon>
                         <span className="pl-8 capitalize">Update</span>
                     </Button>
-                    <Button cvariant="contained" >
+                    <Button variant="contained" className="ml-10">
                         <span className="pl-8 capitalize">Cancel</span>
                     </Button>
                 </div>

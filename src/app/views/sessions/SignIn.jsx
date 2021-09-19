@@ -51,17 +51,18 @@ function SignIn(props) {
   return (
     <div className="signup flex flex-center w-100 h-100vh">
      
-      <div className="p-8">
+      <div className="p-12">
         <Card className="signup-card position-relative y-center">
           <Grid container>
-            <Grid item lg={5} md={5} sm={5} xs={12}>
-              <div className="p-32 flex flex-center flex-middle h-100">
-                <img src="/assets/images/illustrations/dreamer.svg" alt="" />
+            
+            <Grid item lg={6} md={6} sm={12}>
+              
+              <div className="p-36 h-100 position-relative">
+              <div className="above-form">
+                <img src="/assets/images/logo-sm.png" alt="" />
+                <h3>Sign In</h3>
+                <p>Welcome back. Kindly login to continue</p>
               </div>
-            </Grid>
-            <Grid item lg={7} md={7} sm={7} xs={12}>
-              <div className="p-36 h-100 bg-light-gray position-relative">
-                
         <ToastContainer />
                 <ValidatorForm onSubmit={handleFormSubmit}>
                   <TextValidator
@@ -96,7 +97,15 @@ function SignIn(props) {
                     control={<Checkbox checked />}
                     label="I have read and agree to the terms of service."
                   /> */}
-                  <div className="flex flex-middle mb-8">
+                  <Button
+                    className="text-primary km-btn-text"
+                  onClick={() =>
+                    props.history.push("/session/forgot-password")
+                  }
+                  >
+                    Forgot password?
+                    </Button>
+                  <div className="sign-inbtnrow">
                     <div className={props.classes.wrapper}>
                       <Button
                         variant="contained"
@@ -116,25 +125,28 @@ function SignIn(props) {
                     {props.error ? <Alert severity="error">
   <AlertTitle>Error</AlertTitle>
   Invalid Username or Pssword</Alert> : null}
-                    <span className="ml-16 mr-8">or</span>
+                    {/* <span className="ml-16 mr-8">or</span> */}
+                    
+                  </div>
+                  
+                    <div className="signup-button">
+                      <i>Don’t have an account?</i>
                     <Button
-                        className="capitalize"
+                        className="capitalize km-btn-text"
                         onClick={() =>
                          props.history.push("/session/signup")
                         }
                       >
                         Sign up
                       </Button>
-                  </div>
-                  <Button
-                    className="text-primary"
-                  onClick={() =>
-                    props.history.push("/session/forgot-password")
-                  }
-                  >
-                    Forgot password?
-                    </Button>
+                    </div>
                 </ValidatorForm>
+              </div>
+            </Grid>
+            <Grid item lg={6} md={6} sm={12}>
+              <div className="km-sideimg flex flex-center flex-middle h-100">
+                <img src="/assets/images/log-lg.png" alt="" />
+                <img src="/assets/images/logo-xl.png" alt="" className="bg-logo" />
               </div>
             </Grid>
           </Grid>

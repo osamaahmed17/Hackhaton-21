@@ -1,12 +1,215 @@
+$blue: #295CF5;
 .signup {
   background: #1A2038;
-  
-
+  min-height: 100vh;
+  height: auto;
   .signup-card {
-    max-width: 800px;
-    border-radius: 12px !important;
+    min-width: 900px;
+    max-width: 900px;
+    border-radius: 0 !important;
     img {
-      width: 200px;
+      width: auto;
     }
+    .above-form {
+      text-align: center;
+      h3 {
+        font-size: 20px;
+        margin: 15px 0 0;
+        font-weight: 700;
+        color: #242E42;
+      }
+      p {
+        font-size: 14px;
+        color: #242E42;
+        margin: 10px 0 35px;
+      }
+    }
+    .km-btn-text {
+      padding: 0;
+      background: none;
+      .MuiButton-label {
+        color: #242E42;
+        font-weight: 500;
+      }
+    }
+    .sign-inbtnrow {
+      margin: 20px 0;
+      .MuiButton-containedPrimary {
+        width: 100%;
+        display: block;
+        padding: 10px 8px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      &.signuprow {
+        margin: 0 0 15px;
+      }
+    }
+    .signup-button {
+      i {
+        font-style: normal;
+        font-weight: 500;
+      }
+      .MuiButton-label {
+        font-weight: 600;
+      }
+    }
+    .km-sideimg {
+      background-color: #212121;
+      position: relative;
+      .bg-logo {
+        position: absolute;
+        bottom: -10px;
+        right: -50px;
+      }
+    }
+    .km-phonefield {
+      border: 1px solid #c1c1c1;
+        border-radius: 5px;
+        margin: 5px 0 15px;
+        position: relative;
+        padding: 0 0 0 13px;
+        label {
+          position: absolute;
+          top: -7px;
+          left: 9px;
+          background: #fff;
+          padding-right: 5px;
+          font-size: 10px;
+          padding-left: 2px;
+        }
+      .PhoneInput {
+        
+        
+        .PhoneInputInput {
+          padding: 16px 10px;
+          border: none;
+          outline: none !important;
+          font-family: 'Montserrat', sans-serif
+        }
+      }
+    } 
+    &.forgotpass-card {
+      .km-sideimg {
+        min-height: 350px;
+      }
+    }
+  }
+}
+.layout1 .content-wrap .scrollable-content .content {
+  min-height: 100vh;
+}
+.sidenav .sidenav__hold .sidenav__user .username {
+  font-weight: 600;
+}
+.navigation .nav-item .item-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+h3.pagetitle {
+  font-size: 20px;
+  margin: 0 0 30px;
+  font-weight: 600;
+  color: #242E42;
+  position: relative;
+  padding: 0 0 5px;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #bbbec5;
+    content: '';
+  }
+}
+.bank-auth-wrap {
+  padding: 45px;
+}
+.titlebtn {
+  .MuiButton-root {
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 30px;
+  }
+}
+.MuiButton-root {
+  font-weight: 500 !important;
+}
+.buttons-pagerow {
+  margin-top: 20px;
+  .MuiButton-root {
+    padding: 8px 22px;
+  }
+}
+.matx-search-box .search-box {
+  font-family: 'Montserrat', sans-serif;
+}
+.matx-search-box .search-box::placeholder {
+  color: #999;
+}
+.sidenav .sidenav__hold {
+  img {
+    padding: 20px;
+  }
+}
+.sidenav .sidenav__hold .brand-area {
+  display: none;
+}
+.sidenav .sidenav__hold .sidenav__user {
+  margin: 0 0 15px;
+}
+.sidenav .sidenav__hold .sidenav__user img {
+  padding: 0;
+}
+@media screen and (max-width:900px) {
+  .signup .signup-card {
+    min-width: 550px;
+    max-width: 100%;
+    .km-sideimg {
+      display: none;
+    }
+  }
+  .signup {
+    padding: 30px;
+    min-height: 100vh;
+    height: auto !important;
+  }
+}
+@media screen and (max-width:600px) {
+  .signup .signup-card {
+    min-width: 100%;
+    max-width: 100%;
+    .km-sideimg {
+      display: none;
+    }
+  }
+  .signup {
+    padding: 20px;
+    height: auto !important;
+  }
+  .p-36 {
+    padding: 20px !important;
+  }
+  .signup .signup-card .above-form p {
+    font-size: 13px;
+  }
+  .signup .signup-card .sign-inbtnrow .MuiButton-containedPrimary {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .bank-auth-wrap {
+    padding: 30px;
+  }
+  .titlebtn .MuiButton-root {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  h3.pagetitle {
+    font-size: 19px;
+  }
+  .buttons-pagerow .MuiButton-root {
+    padding: 8px 18px;
   }
 }

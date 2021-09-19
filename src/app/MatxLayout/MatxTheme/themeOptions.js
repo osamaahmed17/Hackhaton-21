@@ -31,6 +31,9 @@ const shadows = [
 const themeOptions = {
   typography: {
     fontSize: 14,
+    fontFamily: [
+      'Montserrat'
+    ].join(','),
     body1: {
       fontSize: "14px"
     }

@@ -67,14 +67,15 @@ function ChangePassword(props) {
         setOpen(false);
     };
     return (
-        <div className="m-sm-30">
-            <div className="mb-sm-30">
+        <div className="bank-auth-wrap">
+            <h3 className="pagetitle">Change Password</h3>
+            {/* <div className="mb-sm-30">
                 <Breadcrumb
                     routeSegments={[
                         { name: "Change Password" }
                     ]}
                 />
-            </div>
+            </div> */}
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -106,6 +107,7 @@ function ChangePassword(props) {
                 className="mb-16 w-100"
                 label="Current Password"
                 onChange={handleChange}
+                variant="outlined"
                 name="currentPassword"
                 type="password"
                 value={currentPassword}
@@ -121,6 +123,7 @@ function ChangePassword(props) {
                 label="New Password"
                 onChange={handleChange}
                 name="newPassword"
+                variant="outlined"
                 type="password"
                 value={newPassword}
                 validators={["required", "isPasswordMatch"]}
@@ -134,6 +137,7 @@ function ChangePassword(props) {
                 label="Confirm New Password"
                 onChange={handleChange}
                 name="cnfrmNewPassword"
+                variant="outlined"
                 type="password"
                 value={cnfrmNewPassword}
                 validators={["required", "isPasswordMatch"]}
@@ -143,12 +147,12 @@ function ChangePassword(props) {
                 ]}
               />
               
-                <div>
+              <div className="buttons-pagerow">
                     <Button color="primary" variant="contained" type="submit">
-                        <Icon>submit</Icon>
+                        <Icon>update</Icon>
                         <span className="pl-8 capitalize">Update</span>
                     </Button>
-                    <Button cvariant="contained" >
+                    <Button variant="contained" className="ml-10">
                         <span className="pl-8 capitalize">Cancel</span>
                     </Button>
                 </div>
